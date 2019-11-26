@@ -1,5 +1,31 @@
 var telaAtiva = 0, opcao = 1;
-var imgMenu, imgEquipe, imgJogo, imgNave, imgDisparo, imgCoracao;
+var imgMenu; 
+var imgEquipe; 
+var imgJogo; 
+var imgNave; 
+var imgDisparo; 
+var imgCoracao;
+var imgANEL;
+var imgESTRELA;
+var imgCIRCULO;
+var imgCRUZ;
+var imgLOSANGO;
+var imgSOL;
+var imgPENTAGONO;
+var imgPIRAMIDE;
+var imgOSSO;
+var imgCORACAO;
+var imgELIPSE;
+var imgLUA;
+var imgPARALELE;
+var imgFLECHA;
+var imgHEXAGONO;
+var imgESPADA;
+var imgRETANGULO;
+var imgTRAPEZIO;
+var imgTRIANGULO;
+var imgPAUS;
+var imgQUADRADO;
 var y = 150;
 
 var xObj = 150, yObj = 100;
@@ -8,6 +34,9 @@ var xDisparo, yDisparo;
 var vidasJogador = 3, vidasObj = 3;
 var pontos = 0;
 var atirando = false;
+
+var obj;
+var qntLoop = 0;
 
 function setup() {
   createCanvas(800, 600);
@@ -20,6 +49,28 @@ function preload() {
   imgNave = loadImage('F5S4.png');
   imgDisparo = loadImage('disparo.png');
   imgCoracao = loadImage('coracao.png');
+
+  imgANEL = loadImage('1-jpg.jpg');
+  imgESTRELA = loadImage('1-png.png');
+  imgCIRCULO= loadImage('2-jpg.jpg');
+  imgCRUZ = loadImage('2-png.png');
+  imgLOSANGO = loadImage('3-png.png');
+  imgSOL= loadImage('4-jpg.jpg');
+  imgPENTAGONO = loadImage('4-png.png');
+  imgPIRAMIDE = loadImage('5-jpg.jpg');
+  imgOSSO = loadImage('6-png.png');
+  imgCORACAO = loadImage('7-jpg.jpg');
+  imgELIPSE = loadImage('7-png.png');
+  imgLUA = loadImage('8-jpg.jpg');
+  imgPARALELE = loadImage('8-png.png');
+  imgFLECHA = loadImage('9-jpg.jpg');
+  imgHEXAGONO = loadImage('10-jpg.jpg');
+  imgESPADA = loadImage('10-png.png');
+  imgRETANGULO = loadImage('11-png.png');
+  imgTRAPEZIO = loadImage('12-png.png');
+  imgTRIANGULO = loadImage('13-png.png');
+  imgPAUS = loadImage('14-png.png');
+  imgQUADRADO = loadImage('15-png.png');
 }
 
 function draw() {
@@ -78,12 +129,15 @@ function menu(){
 }
 
 function jogar(){
+
+  qntLoop++;
   
   background(imgJogo);
   
   image(imgNave, xNave, yNave, 100, 100);
   
   if(vidasObj>0){
+    gerarCabecalho(false);
     rect(xObj, yObj, 100, 100);
   
     yObj += 1;
@@ -98,36 +152,18 @@ function jogar(){
     xObj = random(700);
     yObj = 0;
     pontos++;
+    gerarCabecalho(true);
   }
   
-  if(dist(xObj, yObj, xNave, yNave) < 100){
-    xNave = 300;
-    yNave = 500;
+  if(dist(xObj, yObj, xNave, yNave) < 100 || dist(xObj, yObj, xObj, 0) === 500){
+    if (dist(xObj, yObj, xNave, yNave) < 100) {
+      xNave = 300;
+      yNave = 500;
+      yObj = 0;
+      xObj = random(700);
+    }
     vidasJogador--;
-    yObj = 0;
-    xObj = random(700);
   }
-  
-  textSize(40);
-  fill('rgb(229, 57, 53)');
-  stroke(0);
-  strokeWeight(5);
-  text('CIRCLE', 30, 50);
-  
-  textSize(30);
-  fill('rgb(229, 57, 53)');
-  stroke(0);
-  strokeWeight(5);
-  text('LIFE:', 350, 50);
-  
-  textSize(30);
-  fill('rgb(229, 57, 53)');
-  stroke(0);
-  strokeWeight(5);
-  text('PONTOS: '+pontos, 600, 50);
-  
-  noStroke();
-  fill('rgb(213, 0, 0)');
   
    if(vidasJogador == 3){
     image(imgCoracao, 440, 20, 40, 40);
@@ -292,5 +328,127 @@ function btnMenu(){
 function btnVoltar(){
   if(keyCode == BACKSPACE){
     telaAtiva = 0; 
+  }
+}
+
+function gerarCabecalho(novoObj){
+  textSize(30);
+  fill('rgb(229, 57, 53)');
+  stroke(0);
+  strokeWeight(5);
+  if(novoObj || qntLoop === 1){
+    obj = figura();
+  }
+
+  text(obj, 30, 50);
+  
+  textSize(30);
+  fill('rgb(229, 57, 53)');
+  stroke(0);
+  strokeWeight(5);
+  text('LIFE:', 350, 50);
+  
+  textSize(30);
+  fill('rgb(229, 57, 53)');
+  stroke(0);
+  strokeWeight(5);
+  text('PONTOS: ' + pontos, 600, 50);
+  
+  noStroke();
+  fill('rgb(213, 0, 0)');
+}
+
+function figura(){
+  var valor = Math.floor(Math.random() * 21);
+  switch(valor){
+    case 0:
+      return 'CIRCLE';
+    case 1:
+      return 'TRIANGLE';
+    case 2:
+      return 'SQUARE';
+    case 3:
+      return 'RECTANGLE';
+    case 4:
+      return 'PARALLELEPIPED';
+    case 5:
+      return 'TRAPEZE';
+    case 6:
+      return 'ELIPSE';
+    case 7:
+      return 'STAR';
+    case 8:
+      return 'PENTAGON';
+    case 9:
+      return 'HEXAGON';
+    case 10:
+      return 'MOON';
+    case 11:
+      return 'SUN';
+    case 12:
+      return 'CROSS';
+    case 13:
+      return 'RING';
+    case 14:
+      return 'PYRAMID';
+    case 15:
+      return 'BONE';
+    case 16:
+      return 'HEART';
+    case 17:
+      return 'RHOMBUS';
+    case 18:
+      return 'SPADE';
+    case 19:
+      return 'CLUBS';
+    case 20:
+      return 'ARROW';
+  }
+}
+
+function gerarObjeto(novoObj){
+  switch(obj){
+    case 'CIRCLE':
+      image(imgCIRCULO, xObj, yObj, 100, 100);
+    case 'TRIANGLE':
+      image(imgTRIANGULO, xObj, yObj, 100, 100);
+    case 'SQUARE':
+      image(imgQUADRADO, xObj, yObj, 100, 100);
+    case 'RECTANGLE':
+      image(imgRETANGULO, xObj, yObj, 100, 100);
+    case 'PARALLELEPIPED':
+      image(imgPARALELE, xObj, yObj, 100, 100);
+    case 'TRAPEZE':
+      image(imgTRAPEZIO, xObj, yObj, 100, 100);
+    case 'ELIPSE':
+      image(imgELIPSE, xObj, yObj, 100, 100);
+    case 'STAR':
+      image(imgESTRELA, xObj, yObj, 100, 100);
+    case 'PENTAGON':
+      image(imgPENTAGONO, xObj, yObj, 100, 100);
+    case 'HEXAGON':
+      image(imgHEXAGONO, xObj, yObj, 100, 100);
+    case 'MOON':
+      image(imgLUA, xObj, yObj, 100, 100);
+    case 'SUN':
+      image(imgSOL, xObj, yObj, 100, 100);
+    case 'CROSS':
+      image(imgCRUZ, xObj, yObj, 100, 100);
+    case 'RING':
+      image(imgANEL, xObj, yObj, 100, 100);
+    case 'PYRAMID':
+      image(imgPIRAMIDE, xObj, yObj, 100, 100);
+    case 'BONE':
+      image(imgOSSO, xObj, yObj, 100, 100);
+    case 'HEART':
+      image(imgCORACAO, xObj, yObj, 100, 100);
+    case 'RHOMBUS':
+      image(imgLOSANGO, xObj, yObj, 100, 100);
+    case 'SPADE':
+      image(imgESPADA, xObj, yObj, 100, 100);
+    case 'CLUBS':
+      image(imgPAUS, xObj, yObj, 100, 100);
+    case 'ARROW':
+      image(imgFLECHA, xObj, yObj, 100, 100);
   }
 }
