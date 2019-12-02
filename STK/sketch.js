@@ -18,7 +18,7 @@ function setup() {
 function preload() { 
   imgMenu = loadImage('Background-4.png');
   imgEquipe = loadImage('background_old.png');
-  imgJogo = loadImage('background-3.png');
+  imgJogo = loadImage('b3.png');
   imgNave = loadImage('F5S4.png');
   imgDisparo = loadImage('disparo.png');
   imgCoracao = loadImage('coracao.png');
