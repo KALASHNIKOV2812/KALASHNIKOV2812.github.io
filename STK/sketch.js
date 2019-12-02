@@ -115,7 +115,7 @@ function jogar(){
     xObj = random(700);
   }
   
-  textSize(40);
+  textSize(30);
   fill('rgb(229, 57, 53)');
   stroke(0);
   strokeWeight(5);
