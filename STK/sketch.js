@@ -129,7 +129,7 @@ function jogar(){
   }else if(rand == 5){
     text('SUN',30, 50);
   }else if(rand == 6){
-    text('RHOMBUS - DIAMOND',30, 50);
+    text('RHOMBUS',30, 50);
   }else if(rand == 7){
     text('PYRAMID',30, 50);
   }else if(rand == 8){
