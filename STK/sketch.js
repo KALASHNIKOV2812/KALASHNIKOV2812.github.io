@@ -1,5 +1,6 @@
 var telaAtiva = 0, opcao = 1;
 var imgMenu, imgEquipe, imgJogo, imgNave, imgDisparo, imgCoracao;
+var rand = 1;
 var imgObj = [];
 var y = 150;
 
@@ -88,7 +89,7 @@ function jogar(){
   image(imgNave,xNave,yNave,100,100);
   
   if(vidasObj>0){
-    image(imgObj[2],xObj,yObj,100,100);
+    image(imgObj[rand],xObj,yObj,100,100);
   
     yObj +=1;
     
@@ -101,6 +102,7 @@ function jogar(){
     vidasObj = 3;
     xObj = random(700);
     yObj = 0;
+    rand = Math.floor((Math.random()*20)+1);
     pontos++;
   }
   
