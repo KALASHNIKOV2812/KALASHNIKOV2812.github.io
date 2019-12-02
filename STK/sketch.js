@@ -88,7 +88,7 @@ function jogar(){
   image(imgNave,xNave,yNave,100,100);
   
   if(vidasObj>0){
-    image(imgObj[1],xObj,yObj,100,100);
+    image(imgObj[2],xObj,yObj,100,100);
   
     yObj +=1;
     
