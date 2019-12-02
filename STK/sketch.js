@@ -1,6 +1,7 @@
 var telaAtiva = 0, opcao = 1;
 var imgMenu, imgEquipe, imgJogo, imgNave, imgDisparo, imgCoracao;
 var rand = 1;
+var rand1, rand2;
 var imgObj = [];
 var y = 150;
 
