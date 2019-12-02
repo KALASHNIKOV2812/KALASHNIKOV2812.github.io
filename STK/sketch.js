@@ -118,7 +118,48 @@ function jogar(){
   fill('rgb(229, 57, 53)');
   stroke(0);
   strokeWeight(5);
-  text('CIRCLE',30, 50);
+  if(rand == 1){
+    text('RING',30, 50);
+  }else if(rand == 2){
+    text('STAR',30, 50);
+  }else if(rand == 3){
+    text('CIRCLE',30, 50);
+  }else if(rand == 4){
+    text('CROSS',30, 50);
+  }else if(rand == 5){
+    text('SUN',30, 50);
+  }else if(rand == 6){
+    text('RHOMBUS - DIAMOND',30, 50);
+  }else if(rand == 7){
+    text('PYRAMID',30, 50);
+  }else if(rand == 8){
+    text('BONE',30, 50);
+  }else if(rand == 9){
+    text('HEART',30, 50);
+  }else if(rand == 10){
+    text('HEXAGON',30, 50);
+  }else if(rand == 11){
+    text('PARELELLEPIPED',30, 50);
+  }else if(rand == 12){
+    text('ELLIPSE',30, 50);
+  }else if(rand == 13){
+    text('MOON',30, 50);
+  }else if(rand == 14){
+    text('HEXAGON',30, 50);
+  }else if(rand == 15){
+    text('ARROW',30, 50);
+  }else if(rand == 16){
+    text('SPADE',30, 50);
+  }else if(rand == 17){
+    text('RECTANGLE',30, 50);
+  }else if(rand == 18){
+    text('TRAPEZE',30, 50);
+  }else if(rand == 19){
+    text('TRIANGLE',30, 50);
+  }else if(rand == 20){
+    text('CLUB',30, 50);
+  }
+  
   
   textSize(30);
   fill('rgb(229, 57, 53)');
