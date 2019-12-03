@@ -110,11 +110,13 @@ function jogar(){
       if(rand==rand2){
         yObj = 0;
         xObj = random(700);
+        rand = Math.floor((Math.random()*20)+1);
         rand2 = Math.floor((Math.random()*20)+1);
         vidasJogador--;
       }else if(rand!=rand2){
         yObj = 0;
         xObj = random(700);
+        rand = Math.floor((Math.random()*20)+1);
         rand2 = Math.floor((Math.random()*20)+1);
         pontos++;
       } 
