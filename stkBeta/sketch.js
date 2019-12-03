@@ -262,11 +262,11 @@ function jogar(){
     }
   }
   
-  if(keyIsDown(BACKSPACE)){
+  if(keyIsDown(27)){
     telaAtiva = 0;
   }
   
-  if(keyIsDown(27) || keyIsDown(BACKSPACE)){
+  if(keyIsDown(27)){
      telaAtiva = 0;
      vidasJogador = 3;
      vidasObj = 3;
@@ -318,7 +318,7 @@ function tutorial(){
   text('das outras e não as deixando cair',20,390);
   text('no chão. Quando estiver jogando',20,440);
   text('Pressione ESC para voltar ao menu.',20,490);
-  text('Voltar ao menu (Aperte BACKSPACE)',20,590);
+  text('Voltar ao menu (Aperte ESC)',20,590);
   
 }
 
@@ -366,7 +366,7 @@ function btnMenu(){
 }
 
 function btnVoltar(){
-  if(keyCode == BACKSPACE){
+  if(keyCode == 27){
     telaAtiva = 0; 
   }
 }
