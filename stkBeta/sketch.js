@@ -89,16 +89,18 @@ function jogar(){
   
   image(imgNave,xNave,yNave,100,100);
   
-  if(pontos<=7){
+  if(pontos<=5){
     velocidade = 2;
-  }else if(pontos>7 && pontos<=14){
+  }else if(pontos>5 && pontos<=10){
     velocidade = 3;
-  }else if(pontos>14 && pontos<=21){
+  }else if(pontos>10 && pontos<=15){
     velocidade = 3.5;
-  }else if(pontos>21 && pontos<=28){
+  }else if(pontos>15 && pontos<=20){
     velocidade = 4;
-  }else if(pontos>28){
-    velocidade = 4;
+  }else if(pontos>20 && pontos <=25){
+    velocidade = 4.5;
+  }else if(pontos>25){
+    velocidade = 5;
   }      
   
   if(vidasObj>0){
